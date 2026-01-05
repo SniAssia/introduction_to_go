@@ -1,41 +1,62 @@
 package main
 
-import ("fmt"
-		"math/rand/v2")
+import (
+	"fmt"
+	"math/rand/v2"
+)
 
-func main(){
-	random := rand.IntN(100)
-	//fmt.Println(random)
-	var i int
-	var attempts int 
-	fmt.Println("enter number of attempts : ")
-	fmt.Scanf("%d",&attempts)
-
+func main() {
+	var count int
 	for {
-		var number int 
-		fmt.Println("enter your guess here : ")
-		fmt.Scanf("%d",&number)
-		
-		if number <= 100 && number >= 0 {
-			if  number > random {
-				fmt.Println("the guess is too high")
-				i+=1
-			}else if number < random {
-				fmt.Println("the guess is too low")
-				i+=1
-			}else {
-				fmt.Println("the guess is correct")
-				i+=1
+		count+=1
+		best_score := 1000
+		random := rand.IntN(100)
+		fmt.Println(random)
+		var i int
+		var attempts int
+		fmt.Println("enter number of attempts: ")
+		fmt.Scanf("%d\n", &attempts)
+		for {
+			var number int
+			fmt.Println("enter your guess here : ")
+			fmt.Scanf("%d\n", &number)
+
+			if number <= 100 && number >= 0 {
+				if number > random {
+					fmt.Println("the guess is too high")
+					i += 1
+				} else if number < random {
+					fmt.Println("the guess is too low")
+					i += 1
+				} else {
+					fmt.Println("the guess is correct")
+					if count==1{
+						best_score=i
+					}
+					if best_score > i  {
+						best_score = i
+					}
+					i += 1
+					break
+				}
+			} else {
+				fmt.Println("out of range , enter a valid number ")
+			}
+			if i >= attempts {
+				fmt.Println("game over, you lost !!")
 				break
 			}
-		}else {
-			fmt.Println("out of range , enter a valid number ")
+
 		}
-		if i>=attempts{
-			fmt.Println("game over, you lost !!")
+
+		fmt.Println("the number of valid attempts is : ", i)
+		
+		fmt.Println("do you wanna play again?(y,n)")
+		var c rune
+		fmt.Scanf("%c\n", &c)
+		if c == 'n' {
+			fmt.Println("your best score is : ", best_score)
 			break
 		}
-		
 	}
-	fmt.Println("the number of valid attempts is : ",i)
 }
