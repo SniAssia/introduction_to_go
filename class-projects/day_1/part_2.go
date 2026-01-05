@@ -55,7 +55,11 @@ func main() {
 		var c rune
 		fmt.Scanf("%c\n", &c)
 		if c == 'n' {
-			fmt.Println("your best score is : ", best_score)
+			fmt.Println("your best score is : ", best_score,"N.B : if you saw a high score , it means you didn't succeed any step")
+			fmt.Println("review this quiz (easy,medium,hard)")
+			var intention string
+			fmt.Scanf("%s\n",intention)
+			fmt.Println("your answer was : ",intention)
 			break
 		}
 	}
