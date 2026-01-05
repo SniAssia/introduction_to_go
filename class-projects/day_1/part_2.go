@@ -11,7 +11,7 @@ func main() {
 		count+=1
 		best_score := 1000
 		random := rand.IntN(100)
-		fmt.Println(random)
+		//fmt.Println(random)
 		var i int
 		var attempts int
 		fmt.Println("enter number of attempts: ")
@@ -31,10 +31,10 @@ func main() {
 				} else {
 					fmt.Println("the guess is correct")
 					if count==1{
-						best_score=i
+						best_score= i+1
 					}
 					if best_score > i  {
-						best_score = i
+						best_score = i+1
 					}
 					i += 1
 					break
