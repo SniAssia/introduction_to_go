@@ -4,15 +4,20 @@ import "fmt"
 		
 
 func main() {
-	average :=0
-	for i := 0; i<5;i++{
-		var grady int
-		fmt.Println("enter the grade  ",i,": ")
-		fmt.Scanf("%d",&grady)
+	average :=0.0
+	i:=0.0
+	for {
+		var grady float64
+		fmt.Println("enter the grade  ",": ")
+		fmt.Scanf("%g",&grady)
+		if (grady==-1.0){
+			break
+		}
 		average=average+grady
+		i+=1
 
 	}
-	average/=5
+	average/=i
 	fmt.Println("the average is : ",average)
 
 	switch  {
@@ -28,8 +33,6 @@ func main() {
 		fmt.Println(average,"E")
 	default : 
 		fmt.Println("your average is not valid")
-
-
 	}
 	
 	
