@@ -1,0 +1,38 @@
+package main
+
+import "fmt"
+		
+
+func main() {
+	average :=0
+	for i := 0; i<5;i++{
+		var grady int
+		fmt.Println("enter the grade  ",i,": ")
+		fmt.Scanf("%d",&grady)
+		average=average+grady
+
+	}
+	average/=5
+	fmt.Println("the average is : ",average)
+
+	switch  {
+	case average>=90: 
+		fmt.Println(average,"A")
+	case average<90 && average >= 80 : 
+		fmt.Println(average,"B")
+	case average<80 && average >= 70 : 
+		fmt.Println(average,"C")
+	case average<70 && average >= 60 : 
+		fmt.Println(average,"D")
+	case average < 60 : 
+		fmt.Println(average,"E")
+	default : 
+		fmt.Println("your average is not valid")
+
+
+	}
+	
+	
+
+
+}
